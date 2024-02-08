@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "2b2e96b4-9452-46e9-90e7-2011c549c8b6",
+		"name": "basicsCdb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30651946"
+	},
+	"item": [
+		{
+			"name": "getUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/getUser?userId=941520981161541633",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getUser"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "941520981161541633"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SuccessResponse",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/getUser?userId=941520981161541633",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getUser"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "941520981161541633"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "149"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"95-EuGACIn4Bcf/VijSh/4S58A65lY\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 08 Feb 2024 13:43:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"userDetails\": {\n        \"userid\": \"941520981161541633\",\n        \"username\": \"sangar\",\n        \"phone\": \"123456789\",\n        \"address\": \"chennai\"\n    },\n    \"message\": \"Cockroach survives everywhere\"\n}"
+				}
+			]
+		},
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/addUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addUser"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SuccessResponse",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/addUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"addUser"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-IE3Q96BtfzrQH9+UczABauap5vM\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 08 Feb 2024 13:43:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"userId\": \"941520993504133121\",\n    \"message\": \"Cockroach survives everywhere\"\n}"
+				}
+			]
+		}
+	]
+}

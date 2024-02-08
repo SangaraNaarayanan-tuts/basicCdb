@@ -14,7 +14,7 @@ In code:
 - eg: DATABASE_URL = "postgresql://username:password@clustersample"
 - now run the code using node index.js
 
-Postman collection:
+Postman Collection:
 - In the root you can find "basicsCdb.postman_collection.json"
 - go to postman and click on import collection
 - select this file

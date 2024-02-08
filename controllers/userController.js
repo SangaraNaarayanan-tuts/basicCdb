@@ -1,6 +1,6 @@
 const { client } = require("../Common/cockroachDb");
 
-const createTableFunc = async (client) => {
+const createTableFunc = async () => {
     try {
         const createTableQuery =`CREATE TABLE IF NOT EXISTS usertable (
             userid SERIAL PRIMARY KEY,
@@ -23,9 +23,8 @@ const createTableFunc = async (client) => {
 }
 
 exports.addUser =  async (addUserRequest,addUserResponse) => {
-    await client.connect();
     try {
-        let createRes = await createTableFunc(client);
+        let createRes = await createTableFunc();
         if(!createRes.status){
             return addUserResponse.status(500).send({
                 "message": createRes.message
@@ -58,6 +57,7 @@ exports.addUser =  async (addUserRequest,addUserResponse) => {
                 "message": "user has not been created"
             });
         }
+        console.log("user has been created successfully");
         
         addUserResponse.status(200).send({
             "userId": insertResult.rows[0].userid,
@@ -68,7 +68,36 @@ exports.addUser =  async (addUserRequest,addUserResponse) => {
         return addUserResponse.status(500).send({
             "message": "Error Occured"
         });
-    } finally {
-        client.end();
+    }
+}
+
+exports.getUser =  async (getUserRequest,getUserResponse) => {
+    try {
+        let { userId } = getUserRequest.query;
+        if(! userId ){
+            return getUserResponse.status(400).send({
+                "message": "userId should be provided as a path params"
+            });
+        }
+        let selectTable = `SELECT *
+        FROM usertable
+        WHERE userid = '${userId}';`;
+        const results = await client.query(selectTable);
+        // validate the table
+        if(!results.rowCount > 0 ){
+            return getUserResponse.status(400).send({
+                "message": "User is not available in database"
+            });
+        }
+        console.log("user has been fetched successfully");
+        getUserResponse.status(200).send({
+            "userDetails": results.rows[0],
+            "message":"Cockroach survives everywhere"
+        });
+    } catch (err) {
+        console.log("error executing query:", err);
+        return getUserResponse.status(500).send({
+            "message": "Error Occured"
+        });
     }
 }
